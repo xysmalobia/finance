@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Get a quote
+{% endblock %}
+
+{% block main %}
+    <h1>Look up stock price</h1>
+    <p>Enter a stock symbol to check its current stock price.</p>
+    <p>Click here for a list of <a href="https://stockanalysis.com/stocks/" target="_blank">stock ticker symbols</a>.</p>
+    <form action="/quote" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="symbol" placeholder="stock symbol" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Get stock quote</button>
+    </form>
+{% endblock %}

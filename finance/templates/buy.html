@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy shares
+{% endblock %}
+
+{% block main %}
+    <h1>Buy shares</h1>
+    <p>Enter a stock symbol and the number of shares you want to buy.</p>
+    <p>Click here for a list of <a href="https://stockanalysis.com/stocks/" target="_blank">stock ticker symbols</a>.</p>
+    <form action="/buy" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="symbol" placeholder="stock symbol" type="text">
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="shares" placeholder="shares" type="number">
+        </div>
+        <button class="btn btn-primary" type="submit">Buy shares</button>
+    </form>
+{% endblock %}

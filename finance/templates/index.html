@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <h1>Welcome to your finance portal</h1>
+    <p>Find your portfolio below. This list shows updated stock prices.</p>
+    <div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>TOTAL</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stock in stocks %}
+            <tr>
+                <td>{{ stock.symbol|e }}</td>
+                <td>{{ stock.name|e }}</td>
+                <td>{{ stock.total_share_count|e }} </td>
+                <td>{{ stock.current_price | usd}}</td>
+                <td>{{ (stock.total_share_count * stock.current_price) | usd }}</td>
+            </tr>
+            {% endfor %}
+            <tr class="table-secondary">
+                <th>CASH</th>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <th>{{ cash | usd }}</th>
+            </tr>
+            <tr class="table-info">
+                <th>TOTAL</th>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td>{{ calc | usd }} </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+
+{% endblock %}
